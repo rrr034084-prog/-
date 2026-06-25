@@ -1,1 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET HAVEN | 为它，定制一个家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom config for Tailwind to match requested colors and fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #fdfdfd; /* Off-white */
+            color: #333333; /* Charcoal */
+        }
+        
+        .bg-off-white { background-color: #fdfdfd; }
+        .bg-slate-100 { background-color: #f1f5f9; }
+        .text-charcoal { color: #333333; }
+        .text-slate-500 { color: #64748b; }
+        
+        /* Smooth transitions */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
 
+        .product-card .add-to-cart {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .add-to-cart {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-card img {
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="w-full py-6 px-6 md:px-12 flex justify-between items-center fixed top-0 bg-off-white/90 backdrop-blur-sm z-50">
+        <div class="text-2xl font-bold tracking-widest text-charcoal">
+            PET HAVEN
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm tracking-wide text-charcoal/80">
+            <a href="#" class="hover:text-charcoal transition-colors">系列产品</a>
+            <a href="#" class="hover:text-charcoal transition-colors">品牌故事</a>
+            <a href="#" class="hover:text-charcoal transition-colors">护理指南</a>
+        </div>
+        <div class="md:hidden flex items-center">
+            <!-- Mobile menu button (placeholder) -->
+            <button class="text-charcoal"><i class="fas fa-bars text-xl"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col md:flex-row items-center pt-20 px-6 md:px-12 lg:px-24">
+        <div class="w-full md:w-1/2 pr-0 md:pr-12 flex flex-col justify-center space-y-8 py-16 md:py-0">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-charcoal leading-tight">
+                为它，<br/>定制一个家
+            </h1>
+            <p class="text-lg text-slate-500 font-light max-w-md leading-relaxed">
+                北欧极简美学，纯粹布艺匠心。摒弃繁杂，给小宠回归自然的高级安居体验。
+            </p>
+            <div>
+                <a href="#products" class="inline-block bg-charcoal text-white px-10 py-4 text-sm tracking-widest hover:bg-black transition-colors">
+                    探索系列
+                </a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 h-[60vh] md:h-[80vh] relative">
+            <div class="absolute inset-0 bg-slate-100"></div>
+            <img src="images/hero.jpg" alt="Pet Haven Minimalist Home" class="w-full h-full object-cover relative z-10 shadow-2xl">
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
+            <div class="flex flex-col items-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-charcoal text-2xl mb-2">
+                    <i class="fa-solid fa-house-chimney-window"></i>
+                </div>
+                <h3 class="text-xl font-medium tracking-wide">现代家居美学</h3>
+                <p class="text-sm text-slate-500 font-light leading-relaxed">极简线条与温润色彩，完美融入您的北欧风居室，提升空间质感。</p>
+            </div>
+            <div class="flex flex-col items-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-charcoal text-2xl mb-2">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h3 class="text-xl font-medium tracking-wide">100%无尘安全</h3>
+                <p class="text-sm text-slate-500 font-light leading-relaxed">严选高定布料，防尘抗敏处理，守护小宠脆弱的呼吸道健康。</p>
+            </div>
+            <div class="flex flex-col items-center space-y-4">
+                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center text-charcoal text-2xl mb-2">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <h3 class="text-xl font-medium tracking-wide">匠心布艺缝制</h3>
+                <p class="text-sm text-slate-500 font-light leading-relaxed">每一寸拼接皆由经验丰富的手工匠人完成，耐用且充满温度。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section id="products" class="py-24 px-6 md:px-12 lg:px-24 bg-off-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-3xl font-light text-charcoal">甄选系列</h2>
+                <a href="#" class="text-sm tracking-wide text-slate-500 hover:text-charcoal border-b border-transparent hover:border-charcoal transition-all pb-1 hidden md:block">查看全部</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product1.jpg" alt="纯白云朵窝" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">纯白云朵窝</h4>
+                        <span class="text-sm text-slate-500">¥ 299</span>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product2.jpg" alt="冷灰极简笼舍" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">冷灰极简笼舍</h4>
+                        <span class="text-sm text-slate-500">¥ 899</span>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product3.jpg" alt="燕麦色睡垫" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">燕麦色睡垫</h4>
+                        <span class="text-sm text-slate-500">¥ 159</span>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product4.jpg" alt="原木风干草架" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">原木风干草架</h4>
+                        <span class="text-sm text-slate-500">¥ 129</span>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product5.jpg" alt="深岩灰藏身处" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">深岩灰藏身处</h4>
+                        <span class="text-sm text-slate-500">¥ 229</span>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card group cursor-pointer">
+                    <div class="relative overflow-hidden bg-slate-100 aspect-square mb-6">
+                        <img src="images/product6.jpg" alt="定制亚麻地垫" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div class="absolute bottom-6 left-0 right-0 flex justify-center add-to-cart">
+                            <button class="bg-white text-charcoal px-8 py-3 text-sm tracking-wider font-medium shadow-lg hover:bg-charcoal hover:text-white transition-colors">
+                                加入购物车
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <h4 class="text-base font-medium text-charcoal">定制亚麻地垫</h4>
+                        <span class="text-sm text-slate-500">¥ 189</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center md:hidden">
+                <a href="#" class="text-sm tracking-wide text-slate-500 border-b border-slate-500 pb-1">查看全部系列</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="text-xl font-bold tracking-widest text-charcoal mb-4 md:mb-0">
+                PET HAVEN
+            </div>
+            <div class="text-sm text-slate-500 font-light">
+                &copy; 2023 Pet Haven. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
